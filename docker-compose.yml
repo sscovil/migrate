@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  pg:
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=sscovil
+      - POSTGRES_PASSWORD=localdev
+    healthcheck:
+      test: pg_isready -db test -U sscovil
+      interval: 5s
+      retries: 10
+      timeout: 5s
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+
+  node:
+    build: .
+    environment:
+      - NODE_OPTIONS=--experimental-vm-modules
+      - PGHOST=pg
+      - PGPORT=5432
+      - PGDATABASE=test
+      - PGUSER=sscovil
+      - PGPASSWORD=localdev

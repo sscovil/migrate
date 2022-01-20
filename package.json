@@ -1,0 +1,19 @@
+{
+  "name": "@sscovil/migrate",
+  "version": "1.0.0",
+  "main": "src/migrate.js",
+  "repository": "https://github.com/sscovil/migrate",
+  "author": "Shaun Scovil <sscovil@gmail.com>",
+  "license": "MITNFA",
+  "type": "module",
+  "scripts": {
+    "test": "bin/test.sh"
+  },
+  "jest": {
+    "transform": {}
+  },
+  "dependencies": {
+    "jest": "^27.4.7",
+    "pg": "^8.7.1"
+  }
+}
