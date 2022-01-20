@@ -111,10 +111,9 @@ export default async function migrate(db, directory, table = "migrations") {
 export function createMigrationsTable(db, table) {
   return db.query(
       `CREATE TABLE IF NOT EXISTS ${table} (
-        id          UUID         PRIMARY KEY DEFAULT gen_random_uuid(),
-        filename    TEXT         UNIQUE NOT NULL,
-        checksum    TEXT         NOT NULL,
-        created_at  TIMESTAMPTZ  NOT NULL DEFAULT timezone('utc', now())
+        filename    TEXT       NOT NULL PRIMARY KEY,
+        checksum    TEXT       NOT NULL,
+        created_at  TIMESTAMP  NOT NULL DEFAULT now()
      );`
   );
 }

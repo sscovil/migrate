@@ -1,6 +1,6 @@
 {
   "name": "@sscovil/migrate",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "main": "src/migrate.js",
   "repository": "https://github.com/sscovil/migrate",
   "author": "Shaun Scovil <sscovil@gmail.com>",
